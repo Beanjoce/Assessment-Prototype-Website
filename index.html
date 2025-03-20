@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Layout</title>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+</body>
     <style>
         * {
             margin: 0;
@@ -150,11 +152,12 @@
 
         /* Right Section */
         .right-section {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            height: 100%;
-        }
+  position: relative; /* This is the most important change! */
+  width: auto; /* Let the width adjust */
+  display: flex; /* Or display: grid; if you prefer */
+  flex-direction: column; /* Stack the cards vertically */
+  /* Add other styles you need */
+}
 
         .card {
             background: white;
@@ -271,7 +274,7 @@
                 <input type="text" placeholder="Search...">
             </div>
 
-            <div class="nav-icons">
+            <div class="nav-icons">`
                 <button title="Notifications">😡</button>
                 <button title="Messages">😡</button>
                 <button title="Profile">😡</button>
@@ -282,7 +285,7 @@
         <div class="content-container">
             
             <!-- Timetable -->
-            <div class="timetable">
+            <div class="timetable draggable resizable">
                 <h3>Timetable</h3>
                 <table>
                     <tr>
@@ -302,34 +305,34 @@
             <div class="right-section">
                 
                 <!-- Notifications -->
-<div class="card notifications">
+<div class="card notifications draggable resizable">
     <h3>Notifications & Announcements</h3>
     <div class="notification-list">
         <div class="notification-card">
             <div class="notification-header">
                 <img src="icon1.png" alt="Icon">
-                <h4>Event: School Dance</h4>
+                <h4>Event: skibidi</h4>
             </div>
-            <p>🔥 Join us for an exciting school dance this Friday at 7 PM in the main hall!</p>
-        </div>
+            <p>🔥 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>  
         <div class="notification-card">
             <div class="notification-header">
                 <img src="icon2.png" alt="Icon">
-                <h4>Homework Reminder</h4>
+                <h4>djasbdjabs</h4>
             </div>
-            <p>📢 Don't forget that your math assignment is due this Friday. Submit it on time!</p>
+            <p>📢 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
         <div class="notification-card">
             <div class="notification-header">
                 <img src="icon3.png" alt="Icon">
-                <h4>Debate Team Victory</h4>
+                <h4>asdasud</h4>
             </div>
-            <p>🎉 Congratulations to our debate team for winning the regional competition!</p>
+            <p>🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
     </div>
 </div>
                 <!-- Combined School & Profile Card -->
-                <div class="card profile-card">
+                <div class="card profile-card resizable draggable">
                     <h3>School & Profile</h3>
                     <p>School: Corpus Christi</p>
                     <p>Year: 11</p>
@@ -349,10 +352,14 @@
         </div>
 
     </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+
 <script>
     var i = 0;
 function move() {
-  if (i == 0) {
+  if (i == 0) { 
     i = 1;
     var elem = document.getElementById("myBar");
     var width = 10;
@@ -369,9 +376,58 @@ function move() {
     }
   }
 }
+interact('.draggable')
+            .draggable({
+                inertia: true,
+                modifiers: [
+                    interact.modifiers.restrictRect({
+                        restriction: 'parent',
+                        endOnly: true
+                    })
+                ],
+                autoScroll: true,
+                listeners: {
+                    move: dragMoveListener,
+                }
+            })
+            .resizable({ // Add resizable here, chained to draggable
+                edges: { left: true, right: true, bottom: true, top: true },
+                listeners: {
+                    move(event) {
+                        var target = event.target
+                        var x = (parseFloat(target.getAttribute('data-x')) || 0)
+                        var y = (parseFloat(target.getAttribute('data-y')) || 0)
+                        target.style.width = event.rect.width + 'px'
+                        target.style.height = event.rect.height + 'px'
+                        x += event.deltaRect.left
+                        y += event.deltaRect.top
+                        target.style.transform = 'translate(' + x + 'px,' + y + 'px)'
+                        target.setAttribute('data-x', x)
+                        target.setAttribute('data-y', y)
+                    }
+                },
+                modifiers: [
+                    interact.modifiers.restrictEdges({
+                        outer: 'parent'
+                    }),
+                    interact.modifiers.restrictSize({
+                        min: { width: 100, height: 50 }
+                    })
+                ],
+                inertia: true
+            });
+
+        function dragMoveListener(event) {
+            var target = event.target
+            var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
+            var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
+            target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
+            target.setAttribute('data-x', x)
+            target.setAttribute('data-y', y)
+        }
+
+        window.dragMoveListener = dragMoveListener;
 
 </script>
-
-
 </body>
 </html>
