@@ -170,8 +170,43 @@
 
         /* Notifications */
         .notifications {
-            flex-grow: 1;
-        }
+        flex-grow: 1;
+        max-height: 300px; /* Increased max height */
+        overflow-y: auto; /* Enable scrolling */
+        padding: 10px;
+    }
+
+    .notification-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .notification-card {
+        background: #f4f4f4;
+        padding: 20px; /* Increased padding for larger size */
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        font-size: 16px; /* Adjusted font size */
+    }
+
+    .notification-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .notification-header img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+
+    .notification-header h4 {
+        font-size: 18px;
+        margin: 0;
+    }
 
         /* School & Profile Combined */
         .profile-card {
@@ -269,11 +304,30 @@
                 <!-- Notifications -->
                 <div class="card notifications">
                     <h3>Notifications & Announcements</h3>
-                    <p>🗿 skibidi skibidi</p>
-                    <p>🤫 sigma sigma</p>
-                    <p>🤓 poopy</p>
+                    <div class="notification-list">
+                        <div class="notification-card">
+                            <div class="notification-header">
+                                <img src="icon1.png" alt="Icon">
+                                <h4>Event: School Dance</h4>
+                            </div>
+                            <p>🔥 Join us for an exciting school dance this Friday at 7 PM in the main hall!</p>
+                        </div>
+                        <div class="notification-card">
+                            <div class="notification-header">
+                                <img src="icon2.png" alt="Icon">
+                                <h4>Homework Reminder</h4>
+                            </div>
+                            <p>📢 Don't forget that your math assignment is due this Friday. Submit it on time!</p>
+                        </div>
+                        <div class="notification-card">
+                            <div class="notification-header">
+                                <img src="icon3.png" alt="Icon">
+                                <h4>Debate Team Victory</h4>
+                            </div>
+                            <p>🎉 Congratulations to our debate team for winning the regional competition!</p>
+                        </div>
+                    </div>
                 </div>
-
                 <!-- Combined School & Profile Card -->
                 <div class="card profile-card">
                     <h3>School & Profile</h3>
