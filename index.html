@@ -141,26 +141,112 @@
 }
 
 
-        .timetable h3 {
-            margin-bottom: 15px;
-            text-align: center;
-            font-size: 22px;
-        }
 
-        .timetable table {
-            width: 100%;
-            border-collapse: collapse;
-        }
 
-        .timetable th, .timetable td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
+/* Timetable container styling */
+.timetable {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  height: 100vh; /* Set the height of the container to fill the screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Adjust content to fit in space */
+}
 
-        .timetable th {
-            background-color: #f4f4f4;
-        }
+/* Wrapper to handle overflow and preserve rounded corners */
+.timetable-wrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevents scrolling but keeps rounded corners */
+  flex-grow: 1; /* Ensures it takes up all available space */
+}
+
+/* Header showing the current date */
+.timetable-header h2 {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+/* Body layout with time bar and classes side-by-side */
+.timetable-body {
+  display: grid;
+  grid-template-columns: 80px 1fr; /* Time-bar and classes */
+  gap: 10px;
+  height: 100%; /* Ensure body takes the full available space */
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* Time bar styling */
+.time-bar {
+  display: grid;
+  grid-template-rows: repeat(9, 1fr); /* Equal height rows for each time slot */
+  font-weight: bold;
+  color: #888;
+  font-size: 0.9em;
+  text-align: right;
+  padding-right: 10px;
+}
+
+/* Classes container as grid */
+.classes {
+  display: grid;
+  grid-template-rows: repeat(9, 1fr); /* Equal height rows for each class panel */
+  gap: 10px;
+}
+
+/* Each class panel styling */
+.class-panel {
+  background-color: #f7f7ff;
+  border-left: 5px solid #6366f1;
+  padding: 10px 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  gap: 10px;
+  height: 100%; /* Ensure panel fills available space */
+}
+
+/* Padding for top (room/teacher), middle (class name), and bottom (timing) */
+.class-panel .class-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85em;
+  color: #666;
+  width: 100%;
+  padding: 5px;
+}
+
+.class-panel .class-middle {
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #333;
+}
+
+.class-panel .class-bottom {
+  text-align: center;
+  font-size: 0.85em;
+  color: #555;
+}
+
+/* For half-hour panels: shift them down by 50% */
+.class-panel.half {
+  transform: translateY(50%);
+}
+
+
+
+
+
+
+
 
 /* Right Section */
 .right-section {
@@ -481,22 +567,83 @@ button:hover {
         <!-- Content -->
         <div class="content-container">
             
-            <!-- Timetable -->
             <div class="timetable resizable">
-                <h3><a href="timetable.html" style="text-decoration: none; color: inherit;">Timetable</a></h3>
-                <table>
-                    <tr>
-                        <th>Time</th>
-                        <th>Subject</th>
-                        <th>Room</th>
-                    </tr>
-                    <tr><td>09:00 AM</td><td>Sigmaology</td><td>asdasd</td></tr>
-                    <tr><td>10:00 AM</td><td>Dihysics</td><td>asdasd</td></tr>
-                    <tr><td>11:30 AM</td><td>Mewsic</td><td>asda</td></tr>
-                    <tr><td>01:30 PM</td><td>AHHHHHHHH</td><td>adsd</td></tr>
-                    <tr><td>02:00 PM</td><td>Locked in</td><td>Lib</td></tr>
-                </table>
-            </div>
+                <div class="timetable-header">
+                  <h2>📅 Timetable – <span id="current-date"></span></h2>
+                </div>
+                <div class="timetable-body">
+                  <div class="time-bar">
+                    <div>09:00</div>
+                    <div>10:00</div>
+                    <div>11:00</div>
+                    <div>12:00</div>
+                    <div>13:00</div>
+                    <div>14:00</div>
+                    <div>15:00</div>
+                  </div>
+                  <div class="classes">
+                    <!-- First panel (09:00 - 10:00) -->
+                    <div class="class-panel" style="grid-row-start: 1;">
+                      <div class="class-top">
+                        <span class="room">Room A1</span>
+                        <span class="teacher">Mr. Smith</span>
+                      </div>
+                      <div class="class-middle">Mathematics</div>
+                      <div class="class-bottom">08:00 - 09:00</div>
+                    </div>
+              
+                    <!-- Second panel (10:00 - 11:00) -->
+                    <div class="class-panel" style="grid-row-start: 2;">
+                      <div class="class-top">
+                        <span class="room">Room B2</span>
+                        <span class="teacher">Ms. Jones</span>
+                      </div>
+                      <div class="class-middle">History</div>
+                      <div class="class-bottom">09:00 - 10:00</div>
+                    </div>
+              
+                    <!-- Panel for 11:30 - 12:30 -->
+                    <div class="class-panel half" style="grid-row-start: 3;">
+                      <div class="class-top">
+                        <span class="room">Room C3</span>
+                        <span class="teacher">Mrs. Taylor</span>
+                      </div>
+                      <div class="class-middle">Biology</div>
+                      <div class="class-bottom">11:30 - 12:30</div>
+                    </div>
+              
+                    <!-- Panel for 12:30 - 13:30 -->
+                    <div class="class-panel half" style="grid-row-start: 4;">
+                      <div class="class-top">
+                        <span class="room">Room D4</span>
+                        <span class="teacher">Mr. Williams</span>
+                      </div>
+                      <div class="class-middle">Physics</div>
+                      <div class="class-bottom">12:30 - 13:30</div>
+                    </div>
+              
+                    <!-- Panel for 14:00 - 15:00 -->
+                    <div class="class-panel" style="grid-row-start: 6;">
+                      <div class="class-top">
+                        <span class="room">Room E5</span>
+                        <span class="teacher">Ms. Roberts</span>
+                      </div>
+                      <div class="class-middle">Chemistry</div>
+                      <div class="class-bottom">14:00 - 15:00</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+              
+              
+              
+
+
+
+
+
 
             <!-- Right Section -->
             <div class="right-section">
@@ -709,10 +856,19 @@ showAnnouncement(currentIndex);
 setInterval(() => {
     currentIndex = (currentIndex + 1) % announcements.length;
     showAnnouncement(currentIndex);
-}, 4000);
+}, 5000);
 
 </script>
 
+<script>
+    // Update the current date in the timetable header
+    document.getElementById("current-date").textContent = new Date().toLocaleDateString(undefined, {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  </script>
 
 
 </body>
