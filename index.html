@@ -46,7 +46,7 @@
         }
 
         .sidebar button:hover {
-            background-color: #1abc9c;
+            background-color: #555555;
         }
 
         /* Main Content */
@@ -132,12 +132,11 @@
     height: 100%;
     resize: horizontal;
     overflow: auto;
-    width: 400px;            /* Default width */
     min-width: 300px;        /* Minimum width */
     max-width: 70%;          /* Prevent it from taking the whole screen */
     flex-shrink: 0;          /* Prevent shrinking */
     flex-grow: 0;            /* Prevent growing */
-    width: 800px;
+    width: 40vw;
 }
 
 
@@ -294,21 +293,9 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     height: 300px;            /* Fixed height for notifications */
     overflow-y: auto;         /* Allow scrolling if content exceeds */
+    font-size: larger;
 }
 
-        .notification-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .notification-card {
-            background: #f4f4f4;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            font-size: 16px;
-        }
 
         .notification-header {
             display: flex;
@@ -324,7 +311,7 @@
         }
 
         .notification-header h4 {
-            font-size: 18px;
+            font-size: 21px;
             margin: 0;
         }
 
@@ -549,8 +536,9 @@ button:hover {
         <!-- Navbar -->
         <nav class="navbar">
             <div class="logo">
-                <img src="logo.png" alt="Logo">
-                <span style="font-size: 18px; font-weight: bold; margin-left: 10px;">Brand</span>
+                <img src="images/Crest.png" alt="Logo">
+                <span style="font-size: 18px; font-weight: bold; margin-left: 10px;"></span>
+                <a href="index.html" style="font-size: 18px; font-weight: bold; margin-left: 10px; color:#201e1e; text-decoration-line: none;">Corpus Christi</a>
             </div>
 
             <div class="search-bar">
@@ -558,9 +546,8 @@ button:hover {
             </div>
 
             <div class="nav-icons">
-                <button title="Notifications">🔔</button>
-                <button title="Messages">✉️</button>
-                <button title="Profile">🙍</button>
+                <button title="Email">✉️</button>
+                <button title="Profile">👤</button>
             </div>
         </nav>
 
@@ -569,7 +556,8 @@ button:hover {
             
             <div class="timetable resizable">
                 <div class="timetable-header">
-                  <h2>📅 Timetable – <span id="current-date"></span></h2>
+                  <h2>📅 <a href="timetable.html" style="color:#201e1e">Timetable</a> – <span id="current-date"></span></h2>
+                  
                 </div>
                 <div class="timetable-body">
                   <div class="time-bar">
@@ -585,50 +573,50 @@ button:hover {
                     <!-- First panel (09:00 - 10:00) -->
                     <div class="class-panel" style="grid-row-start: 1;">
                       <div class="class-top">
-                        <span class="room">Room A1</span>
-                        <span class="teacher">Mr. Smith</span>
+                        <span class="room">LV101</span>
+                        <span class="teacher">DOU</span>
                       </div>
-                      <div class="class-middle">Mathematics</div>
+                      <div class="class-middle">Music</div>
                       <div class="class-bottom">08:00 - 09:00</div>
                     </div>
               
                     <!-- Second panel (10:00 - 11:00) -->
                     <div class="class-panel" style="grid-row-start: 2;">
                       <div class="class-top">
-                        <span class="room">Room B2</span>
-                        <span class="teacher">Ms. Jones</span>
+                        <span class="room">CC202</span>
+                        <span class="teacher">DEB</span>
                       </div>
-                      <div class="class-middle">History</div>
+                      <div class="class-middle">Studies of Religion 2</div>
                       <div class="class-bottom">09:00 - 10:00</div>
                     </div>
               
                     <!-- Panel for 11:30 - 12:30 -->
                     <div class="class-panel half" style="grid-row-start: 3;">
                       <div class="class-top">
-                        <span class="room">Room C3</span>
-                        <span class="teacher">Mrs. Taylor</span>
+                        <span class="room">CC102</span>
+                        <span class="teacher">SZA</span>
                       </div>
-                      <div class="class-middle">Biology</div>
+                      <div class="class-middle">Study</div>
                       <div class="class-bottom">11:30 - 12:30</div>
                     </div>
               
                     <!-- Panel for 12:30 - 13:30 -->
                     <div class="class-panel half" style="grid-row-start: 4;">
                       <div class="class-top">
-                        <span class="room">Room D4</span>
-                        <span class="teacher">Mr. Williams</span>
+                        <span class="room">AC105</span>
+                        <span class="teacher">RGU</span>
                       </div>
-                      <div class="class-middle">Physics</div>
+                      <div class="class-middle">Maths Advanced</div>
                       <div class="class-bottom">12:30 - 13:30</div>
                     </div>
               
                     <!-- Panel for 14:00 - 15:00 -->
                     <div class="class-panel" style="grid-row-start: 6;">
                       <div class="class-top">
-                        <span class="room">Room E5</span>
-                        <span class="teacher">Ms. Roberts</span>
+                        <span class="room">CC203</span>
+                        <span class="teacher">MWA</span>
                       </div>
-                      <div class="class-middle">Chemistry</div>
+                      <div class="class-middle">English Advanced</div>
                       <div class="class-bottom">14:00 - 15:00</div>
                     </div>
                   </div>
@@ -663,8 +651,9 @@ button:hover {
 <div class="merits-tracker-content">
     <!-- Left Section - Merits Tracker -->
     <div class="merits-left">
-        <h3>Merits Awards Tracker</h3>
-        <p>Track your progress towards merit milestones!</p>
+        <h3>Profile Card</h3>
+        <p>Elias, Year 11, Yarra</p>
+        <p>🔥Progress to Gold Award!</p>
         <h4>Merits Progress</h4>
         <div id="progressContainer">
             <div id="progressBar">
@@ -681,8 +670,8 @@ button:hover {
         
         <!-- Buttons to Earn Merits -->
         <div class="merit-buttons">
-            <button onclick="addMerits(5)">Earn 5 Merits</button>
-            <button onclick="addMerits(10)">Earn 10 Merits</button>
+            <button onclick="addMerits(5)">5 Merits</button>
+            <button onclick="addMerits(10)">10 Merits</button>
         </div>
     </div>
 
@@ -814,19 +803,44 @@ function addMerits(merits) {
 <script>
     const announcements = [
     {
-        title: "Event: skibidi",
-        icon: "icon1.png",
-        message: "🔥 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        title: "Event: Swimming Carnival",
+        icon: "images/Crest.png",
+        message: `The College Swimming Carnival will be held on Tuesday 18th February at Botany Aquatic Centre, Myrtle Street Botany. The
+                Carnival will commence at 8.40am and finish at approximately 2:30pm. Students are expected to be at the venue by 8.40am
+and seated in Homeroom lines in Booralee Park outside the pool for an 8.45am roll call. All students are to wear their full
+College sports uniform with their house shirt. Year 7 will be issued their shirts on Monday in House Meetings. If there is
+inclement weather on the day, the College will notify parents and students by 7am via Compass regarding the cancellation of
+the event, and normal classes will occur.`
     },
     {
-        title: "djasbdjabs",
-        icon: "icon2.png",
-        message: "📢 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        title: "HSC Results ",
+        icon: "images/Crest.png",
+        message: `
+      The results achieved by this cohort are the best the school has seen in a number of years. A snapshot of this is below.<br><br>
+      <ul>
+        <li>18 students appeared on the distinguished achievers list</li>
+        <li>5 students achieved ATARS over 90</li>
+        <li>154 Band 5s and 6s</li>
+      </ul>
+      Since 2021:<br><br>
+      <ul>
+        <li>The number of subjects above state average has increased by 44%</li>
+        <li>The average ATAR received by students undertaking an academic pathway has increased by 16</li>
+        <li>Media rank/league table place has improved 193 places</li>
+        <li>The most important of all measures is the number of subjects that have achieved comparative learning gain. This is the comparison of like students based on Year 9 NAPLAN results. This has increased by 42%</li>
+      </ul>
+      In addition to outstanding improvement in HSC data, there was also great success for students on the applied pathway or studying vocational subjects.<br><br>
+      <ul>
+        <li>50% of the cohort undertook an EVET or VET subject. 94% of these students achieved either a Certificate II or III in the subject.</li>
+        <li>10 students completed their School Based Apprenticeship.</li>
+      </ul>
+    `
+
     },
     {
-        title: "asdasud",
-        icon: "icon3.png",
-        message: "🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        title: "Attendance Rates",
+        icon: "images/Crest.png",
+        message: 'Research has shown there is a direct correlation between attendance and student achievement. High performing schools have attendance rates around 97-98%.  I encourage all parents to ensure their son/daughter is at school each day of the term unless they are too ill to attend.  Wherever possible could appointments and holidays be made outside of school time. Applications for leave need to be made at least two weeks in advance.  Leave will be approved on a case by case basis taking into account assessment schedules and major College events and the impact on the educational needs of the child. Please see below attendance rates to date for 2025.'
     }
 ];
 
