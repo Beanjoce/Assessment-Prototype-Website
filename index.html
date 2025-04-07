@@ -167,8 +167,8 @@
 .timetable-wrapper {
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Prevents scrolling but keeps rounded corners */
-  flex-grow: 1; /* Ensures it takes up all available space */
+  overflow: hidden; 
+  flex-grow: 1; 
 }
 
 /* Header showing the current date */
@@ -180,16 +180,16 @@
 /* Body layout with time bar and classes side-by-side */
 .timetable-body {
   display: grid;
-  grid-template-columns: 80px 1fr; /* Time-bar and classes */
+  grid-template-columns: 80px 1fr; 
   gap: 10px;
-  height: 100%; /* Ensure body takes the full available space */
+  height: 100%; 
 
 }
 
 /* Time bar styling */
 .time-bar {
   display: grid;
-  grid-template-rows: repeat(9, 1fr); /* Equal height rows for each time slot */
+  grid-template-rows: repeat(9, 1fr); 
   font-weight: bold;
   color: #888;
   font-size: 0.9em;
@@ -200,7 +200,7 @@
 /* Classes container as grid */
 .classes {
   display: grid;
-  grid-template-rows: repeat(9, 1fr); /* Equal height rows for each class panel */
+  grid-template-rows: repeat(9, 1fr);
   gap: 10px;
 }
 
@@ -213,10 +213,10 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
+  justify-content: center; 
+  align-items: center; 
   gap: 10px;
-  height: 100%; /* Ensure panel fills available space */
+  height: 100%; 
 }
 
 /* Padding for top (room/teacher), middle (class name), and bottom (timing) */
@@ -260,11 +260,11 @@
     width: auto;
     display: flex;
     flex-direction: column;
-    gap: 20px;               /* Space between the cards */
+    gap: 20px;
     height: 100%;
     min-width: 300px;
     flex-grow: 1;
-    overflow: hidden;          /* Hide overflow for right section */
+    overflow: hidden;
 }
 
 
@@ -298,8 +298,8 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    height: 300px;            /* Fixed height for notifications */
-    overflow-y: auto;         /* Allow scrolling if content exceeds */
+    height: 300px;
+    overflow-y: auto;
     font-size: larger;
 }
 
@@ -365,7 +365,7 @@
 }
 
 #progressFill {
-    width: 10%;         /* Initial progress */
+    width: 10%;
     height: 30px;
     background-color: #ffc038;
     text-align: center;
@@ -379,25 +379,25 @@
 /* Milestones Container */
 .milestones {
     position: absolute;
-    top: -30px; /* Ensure they are above the progress bar */
+    top: -30px;
     left: 0;
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-between; /* Distribute the milestones evenly */
+    justify-content: space-between;
     pointer-events: none;
-    z-index: 2;  /* Ensure they are above the progress bar */
+    z-index: 2;
 }
 
 /* Milestone */
 .milestone {
     position: absolute;
-    top: -30px; /* Position above the progress bar */
+    top: -30px;
     font-size: 14px;
     color: #333;
     font-weight: bold;
-    transform: translateX(-50%); /* Center the milestone text */
-    z-index: 3; /* Ensure visibility over other elements */
+    transform: translateX(-50%);
+    z-index: 3; 
 }
 button {
     padding: 10px 20px;
@@ -416,13 +416,13 @@ button:hover {
 /* Merits Tracker Content (Left and Right Sections) */
 .merits-tracker-content {
     display: flex;
-    gap: 20px;  /* Space between the two sections */
+    gap: 20px;
     margin-top: 20px;
 }
 
 /* Left Section - Merits Tracker */
 .merits-left {
-    flex: 1;  /* Allow the left section to grow */
+    flex: 1;
     display: flex;
     flex-direction: column;
 
@@ -435,9 +435,9 @@ button:hover {
     flex-direction: column;
     gap: 20px;
     justify-content: flex-start;
-    padding-left: 20px;  /* Optional, add space between the sections */
-    height: 400px;  /* Fixed height for reminders */
-    overflow-y: auto; /* Allow scrolling if content exceeds */
+    padding-left: 20px;
+    height: 400px;
+    overflow-y: auto;
     width: 50%;
 }
 
@@ -474,8 +474,8 @@ button:hover {
     flex-direction: column;
     gap: 15px;
     margin-top: 20px;
-    max-height: 150px;  /* Set a fixed height */
-    overflow-y: auto;   /* Enable vertical scrolling */
+    max-height: 150px;
+    overflow-y: auto;
 }
 
 .reminder-item {
