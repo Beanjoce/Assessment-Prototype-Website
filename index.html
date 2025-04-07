@@ -13,6 +13,12 @@
             font-family: Arial, sans-serif;
         }
 
+        .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
         body {
             display: flex;
             height: 100vh;
@@ -842,7 +848,8 @@ the event, and normal classes will occur.`
     {
         title: "Attendance Rates",
         icon: "images/Crest.png",
-        message: 'Research has shown there is a direct correlation between attendance and student achievement. High performing schools have attendance rates around 97-98%.  I encourage all parents to ensure their son/daughter is at school each day of the term unless they are too ill to attend.  Wherever possible could appointments and holidays be made outside of school time. Applications for leave need to be made at least two weeks in advance.  Leave will be approved on a case by case basis taking into account assessment schedules and major College events and the impact on the educational needs of the child. Please see below attendance rates to date for 2025.'
+        message: `Research has shown there is a direct correlation between attendance and student achievement. High performing schools have attendance rates around 97-98%.  I encourage all parents to ensure their son/daughter is at school each day of the term unless they are too ill to attend.  Wherever possible could appointments and holidays be made outside of school time. Applications for leave need to be made at least two weeks in advance.  Leave will be approved on a case by case basis taking into account assessment schedules and major College events and the impact on the educational needs of the child. Please see below attendance rates to date for 2025.
+        <img src="images/attendance.png" class="center"> <img src="images/rates.png" class="center">`
     }
 ];
 
@@ -885,7 +892,6 @@ setInterval(() => {
       day: 'numeric'
     });
   </script>
-
 
 </body>
 </html>
